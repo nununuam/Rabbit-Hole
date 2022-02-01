@@ -1,6 +1,7 @@
 /* ====== External Modules  ====== */
 // Required External Modules
 // all required code that is not our own
+require("dotenv").config();
 const express = require('express');
 
 
@@ -24,7 +25,7 @@ const PORT = 4000; // full caps signify a config variable
 
 /* ====== App Configuration  ====== */
 // app.set
-
+app.set("view engine", "ejs");
 
 /* ====== Routes  ====== */
 
