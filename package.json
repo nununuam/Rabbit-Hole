@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/abled007/Rabbit-Hole/issues"
   },
-  "homepage": "https://github.com/abled007/Rabbit-Hole#readme"
+  "homepage": "https://github.com/abled007/Rabbit-Hole#readme",
+  "dependencies": {
+    "dotenv": "^15.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "init": "^0.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
