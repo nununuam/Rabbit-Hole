@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 
 
 const userSchema = new mongoose.Schema({
-    googleID: String,
-    firstName: String,
-    lastName: String,
-    email: String,
+    googleID: {String, require: true},
+    Name: {
+        firstName: String,
+        lastName: String
+    },
+    email: {String, require: true},
     uploadsurl: [String],
 },{
     timesamps:true
@@ -13,7 +15,10 @@ const userSchema = new mongoose.Schema({
 
 const videoSchema = new mongoose.Schema({
     categories: [String],
-    title: String,
-    links: String,
-    views: Number,
+    title: {type: String, require: true},
+    links: {type: String, require: true},
+    views: {type: String, min: 0},
 });
+
+module.exports = mongooose.model('users', userSchema);
+module.exports = mongoose.model('video', videoSchema);
