@@ -22,3 +22,19 @@ body {
     background-color: #e50000;
 }
 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 200px;
+}
+
+.body {
+    text-align: center;
+}
+
+button {
+    color: white;
+    background-color: transparent;
+    font-size: 50px;
+    margin: auto;
+}
