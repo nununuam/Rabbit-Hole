@@ -1,0 +1,24 @@
+body {
+    background-color: #333333;
+    margin: 0;
+    font-family: 'Questrial', sans-serif;
+}
+
+.navbar {
+    background-color: #555151;
+    overflow: hidden;
+    color: white;
+    padding: 10px;
+    
+}
+
+.navbar a {
+    padding: 10px 10px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.navbar a.active {
+    background-color: #e50000;
+}
+
