@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
 	res.render("index");
 });
 /* ====== Routes  ====== */
-require("./config/database");
-require("./config/passport");
+ //require("./config/database");
+ require("./config/passport");
 	
 /* ====== Server bind  ====== */
 // bind the application to the port via app.listen(number, optional function to do after bind)
