@@ -4,6 +4,7 @@
 require("dotenv").config();
 const express = require('express');
 const req = require("express/lib/request");
+const session = require('express-session');
 
 
 /* ====== Internal Modules  ====== */
@@ -18,7 +19,8 @@ const app = express();
 
 	
 /* ====== Middleware  ====== */ 
-//(app.use)
+app.use(express.urlencoded({ extended: true }));  
+app.use( session({ secret: "rabbitHole", resave: false, saveUninitialized: true, }) );
 
 
 /* ====== System Variables  ====== */
