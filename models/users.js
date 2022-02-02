@@ -17,5 +17,6 @@ const videoSchema = new mongoose.Schema({
     views: {type: Number, min: 0},
 });
 
-module.exports = mongooose.model('users', userSchema);
-module.exports = mongoose.model('video', videoSchema);
+//module.exports = mongooose.model('users', userSchema);
+//module.exports = mongoose.model('video', videoSchema);
+module.exports = {'users' : userSchema, 'video' : videoSchema};
