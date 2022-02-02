@@ -2,12 +2,9 @@ const mongoose = require('mongoose');
 
 
 const userSchema = new mongoose.Schema({
-    googleID: {String, require: true},
-    Name: {
-        firstName: String,
-        lastName: String
-    },
-    email: {String, require: true},
+    googleID: String,
+    Name: String,
+    email: String,
     uploadsurl: [String],
 },{
     timesamps:true
