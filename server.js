@@ -5,7 +5,7 @@ require("dotenv").config();
 const express = require('express');
 const req = require("express/lib/request");
 const session = require('express-session');
-
+const passport = require('passport');
 
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
@@ -20,8 +20,9 @@ const app = express();
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  
-app.use( session({ secret: "rabbitHole", resave: false, saveUninitialized: true, }) );
-
+app.use(session({ secret: "rabbitHole", resave: false, saveUninitialized: true, }) );
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* ====== System Variables  ====== */
 const PORT = 4000; // full caps signify a config variable
