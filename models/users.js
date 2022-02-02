@@ -15,7 +15,9 @@ const videoSchema = new mongoose.Schema({
     title: String,
     links: String,
     views: {type: Number, min: 0},
-});
+},
+    {timesamps: true}
+);
 
 //module.exports = mongooose.model('users', userSchema);
 //module.exports = mongoose.model('video', videoSchema);
