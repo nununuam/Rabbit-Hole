@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 	res.render("index");
 });
 /* ====== Routes  ====== */
- require("./config/database");
+ //require("./config/database");
  require("./config/passport");
 	
 /* ====== Server bind  ====== */
