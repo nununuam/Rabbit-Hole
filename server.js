@@ -25,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
 
+
 /* ====== System Variables  ====== */
 const PORT = 4000; // full caps signify a config variable
 
