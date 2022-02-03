@@ -33,8 +33,17 @@ const PORT = 4000; // full caps signify a config variable
 app.set("view engine", "ejs");
 app.get('/', (req, res) => {
 	console.log('here')
-	res.render("index");
+	res.render("home");
 });
+app.get('/', (req, res) => {
+	console.log('here')
+	res.render("browse");
+});
+app.get('/', (req, res) => {
+	console.log('here')
+	res.render("upload");
+});
+
 /* ====== Routes  ====== */
  //require("./config/database");
  require("./config/passport");
