@@ -35,13 +35,17 @@ app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
-app.get('/', (req, res) => {
-	console.log('here')
+app.get('/browse', (req, res) => {
+	console.log('browse')
 	res.render("browse");
 });
-app.get('/', (req, res) => {
-	console.log('here')
+app.get('/upload', (req, res) => {
+	console.log('upload')
 	res.render("upload");
+});
+app.get('/login', (req, res) => {
+	console.log('login')
+	res.render("login");
 });
 
 /* ====== Routes  ====== */
