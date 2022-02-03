@@ -49,7 +49,7 @@ app.get('/login', (req, res) => {
 });
 
 /* ====== Routes  ====== */
- //require("./config/database");
+ require("./config/database");
  require("./config/passport");
 
 /* ====== Server bind  ====== */
