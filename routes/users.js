@@ -23,5 +23,12 @@ router.get("/", function (req, res)
     { res.render("home", { user: req.user, }); 
 }); 
 
+router.get("/", function (req, res) {
+    res.render('index', {
+        user: req.user
+    });
+});
+
+
 
 module.exports = router;
