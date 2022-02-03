@@ -9,4 +9,4 @@ const userSchema = new mongoose.Schema({
 },{
     timesamps:true
 });
-module.exports = mongooose.model('users', userSchema);
+module.exports = mongoose.model('users', userSchema);

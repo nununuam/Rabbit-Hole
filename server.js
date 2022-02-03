@@ -3,7 +3,7 @@
 // all required code that is not our own
 require("dotenv").config();
 const express = require('express');
-const req = require("express/lib/request");
+//const req = require("express/lib/request");
 const session = require('express-session');
 const passport = require('passport');
 
@@ -51,7 +51,7 @@ app.get('/login', (req, res) => {
 /* ====== Routes  ====== */
  //require("./config/database");
  require("./config/passport");
-	
+
 /* ====== Server bind  ====== */
 // bind the application to the port via app.listen(number, optional function to do after bind)
 app.listen(PORT, function () {
