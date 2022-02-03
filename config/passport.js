@@ -12,7 +12,6 @@ passport.use(new GoogleStrategy({
             if (student) {
               return cb(null, student);
             } else {
-              // we have a new student via OAuth!
               const newStudent = new Student({
                 name: profile.displayName,
                 email: profile.emails[0].value,
