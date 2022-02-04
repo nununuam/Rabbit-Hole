@@ -30,7 +30,7 @@ router.get("/", function (req, res) {
 });
 
 router.get("/login", function (req, res) {
-    res.render("oauth/google");
+    res.redirect("oauth/google");
     console.log("oauth login");
 })
 
