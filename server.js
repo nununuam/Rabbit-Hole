@@ -16,7 +16,7 @@ const passport = require('passport');
 // Create the Express app
 const app = express();
 // returns an object that is our server
-const routes = require('./routes/users');
+const routes = require('./routes/user');
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  
@@ -36,15 +36,15 @@ app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
-app.get('/browse', (req, res) => {
+app.get('../Browsing/browse', (req, res) => {
 	console.log('browse')
 	res.render("browse");
 });
-app.get('/upload', (req, res) => {
+app.get('/Upload/upload', (req, res) => {
 	console.log('upload')
 	res.render("upload");
 });
-app.get('/login', (req, res) => {
+app.get('/Upload/login', (req, res) => {
 	console.log('login')
 	res.render("login");
 });
