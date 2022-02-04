@@ -35,6 +35,9 @@ router.get("/", function (req, res) {
 });
 */
 
-
+router.get("/login", function (req, res) {
+    res.redirect("oauth/google");
+    console.log("oauth login");
+})
 
 module.exports = router;
