@@ -9,4 +9,13 @@ const userSchema = new mongoose.Schema({
 },{
     timesamps:true
 });
+const videoSchema = new mongoose.Schema({
+    categories: [String],
+    title: String,
+    links: String,
+    views: {type: Number, min: 0},
+},
+    {timesamps: true}
+);
 module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('video', videoSchema);

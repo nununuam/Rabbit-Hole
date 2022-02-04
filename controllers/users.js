@@ -1,5 +1,5 @@
 const users = require('../models/users');
-  
+  // this will be where we write the function for storing users infos plus their uploads
 function index(req, res, next) {
   Student.find({}, function(err, users) {
     res.render('home', {
