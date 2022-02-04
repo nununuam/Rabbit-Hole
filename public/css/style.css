@@ -3,7 +3,6 @@ body {
     margin: 0;
     font-family: 'Questrial', sans-serif;
 }
-
 .navbar {
     background-color: #555151;
     overflow: hidden;
@@ -41,4 +40,11 @@ button {
 
 .footer {
     text-align: center;
+}
+
+.title {
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    font-size: 100px;
+    
 }
