@@ -16,7 +16,7 @@ const passport = require('passport');
 // Create the Express app
 const app = express();
 // returns an object that is our server
-
+const routes = require('./routes/users');
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  
@@ -24,6 +24,7 @@ app.use(session({ secret: "rabbitHole", resave: false, saveUninitialized: true, 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
+
 
 /* ====== System Variables  ====== */
 const PORT = 4000; // full caps signify a config variable
@@ -47,7 +48,11 @@ app.get('/login', (req, res) => {
 	console.log('login')
 	res.render("login");
 });
-
+app.get('/home', (req, res) => {
+	res.render("home");
+});
+app.use('/', routes
+);
 /* ====== Routes  ====== */
  require("./config/database");
  require("./config/passport");
