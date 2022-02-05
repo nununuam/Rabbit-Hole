@@ -1,5 +1,5 @@
 const Users = require('../models/users');
-  //this is where they delete, update for the indivisual user 
+  
 function index(req, res, next) {
   Users.find({}, function(err, users) {
     res.render('home', {

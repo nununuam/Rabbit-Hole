@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
-    
+    <% if (user) { %>
+        <a href="/logout">logout</a>
+    <% } else { %>
      <a href="/auth/google">Login with Google</a>
-    
+    <% } %>
 </body>
 </html>
