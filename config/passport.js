@@ -8,6 +8,7 @@ passport.use(new GoogleStrategy({
       callbackURL: process.env.Google_Oauth_Callback, 
     }, 
     function (accessToken, refreshToken, profile, cb) {
+      console.log(accessToken, "acess Token", refreshToken)
         Users.findOne({ googleId: profile.id }, function (err, user) {
             if (err) return cb(err);
             if (user) {
