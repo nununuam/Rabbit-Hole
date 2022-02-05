@@ -6,12 +6,12 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     uploadsurl: [String],
-},{
-    timestamps:true
-});
+},
+    {timestamps:true}
+);
 const videoSchema = new mongoose.Schema({
     categories: [String],
-    title: String,
+    //title: String,
     links: String,
     views: {type: Number, min: 0},
 },
