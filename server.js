@@ -24,6 +24,7 @@ app.use(session({ secret: "rabbitHole", resave: false, saveUninitialized: true, 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
+app.use("/", routes);
 
 
 /* ====== System Variables  ====== */
