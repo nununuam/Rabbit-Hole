@@ -16,7 +16,7 @@ const passport = require('passport');
 // Create the Express app
 const app = express();
 // returns an object that is our server
-const routes = require('./routes/users');
+const routes = require('./routes/user');
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  

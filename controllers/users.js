@@ -1,7 +1,7 @@
-const users = require('../models/users');
-  
+const Users = require('../models/users');
+  //this is where they delete, update for the indivisual user 
 function index(req, res, next) {
-  Student.find({}, function(err, users) {
+  Users.find({}, function(err, users) {
     res.render('home', {
       users,
       user: req.user
