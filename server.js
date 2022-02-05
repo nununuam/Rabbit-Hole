@@ -43,7 +43,8 @@ app.get('/browse', (req, res) => {
 });
 app.get('/upload', (req, res) => {
 	console.log('upload')
-	res.render("upload");
+	res.render("upload", 
+	{ user: req.user });
 });
 app.get('/login', (req, res) => {
 	console.log('login')
