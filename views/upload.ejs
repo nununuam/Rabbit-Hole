@@ -23,7 +23,7 @@
       
     </div>
     <h2 class="title">Upload</h2>
-    <div>
+    <!--<div>
         <label for="email-input">title(catagory)</label><br>
         <input 
           id="email-input" 
@@ -39,5 +39,14 @@
           name="email-inputted" 
           placeholder="link to the video">
       </div>
+    --> 
+     
+      <form action="/browse" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="link" name="link">
+        <button type="submit">Submit</button>
+      </form>
+      
+		
 </body>
 </html>
