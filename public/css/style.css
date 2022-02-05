@@ -3,12 +3,12 @@ body {
     margin: 0;
     font-family: 'Questrial', sans-serif;
 }
+
 .navbar {
     background-color: #555151;
     overflow: hidden;
     color: white;
-    padding: 10px;
-    
+    padding: 10px; 
 }
 
 .navbar a {
@@ -48,3 +48,10 @@ button {
     font-size: 100px;
     
 }
+
+label {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+}
+
