@@ -36,15 +36,15 @@ app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
-app.get('../Browsing/browse', (req, res) => {
+app.get('/browse', (req, res) => {
 	console.log('browse')
 	res.render("browse");
 });
-app.get('/Upload/upload', (req, res) => {
+app.get('/upload', (req, res) => {
 	console.log('upload')
 	res.render("upload");
 });
-app.get('/Upload/login', (req, res) => {
+app.get('/login', (req, res) => {
 	console.log('login')
 	res.render("login");
 });
