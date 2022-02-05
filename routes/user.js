@@ -33,9 +33,7 @@ router.get("/", function (req, res) {
     });
 });
 
-router.get("/login", function (req, res) {
-    res.redirect("auth/google");
-    console.log("auth login");
-})
+
+
 
 module.exports = router;
