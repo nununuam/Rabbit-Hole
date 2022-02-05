@@ -1,7 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const users = require("../models/User");
-const videos = require("../models/videos");
+const Users = require("../models/User");
 
 passport.use(new GoogleStrategy({ 
       clientID: process.env.Google_Client_ID, 
@@ -9,19 +8,19 @@ passport.use(new GoogleStrategy({
       callbackURL: process.env.Google_Oauth_Callback, 
     }, 
     function (accessToken, refreshToken, profile, cb) {
-        users.findOne({ googleId: profile.id }, function (err, user) {
+        Users.findOne({ googleId: profile.id }, function (err, user) {
             if (err) return cb(err);
             if (user) {
               return cb(null, user);
             } else {
-              const newusers = new users({
+              const newUsers = new Users({
                 name: profile.displayName,
                 email: profile.emails[0].value,
                 googleId: profile.id,
               });
-              newusers.save(function (err) {
+              newUsers.save(function (err) {
                 if (err) return cb(err);
-                return cb(null, newStudent);
+                return cb(null, newUsers);
               });
             }
           });
@@ -33,7 +32,7 @@ passport.serializeUser(function(user, done){
     done(null, user.id)
 });
 passport.deserializeUser(function (id, done) { 
-    Student.findById(id, function (err, user) { 
+    Users.findById(id, function (err, user) { 
         done(err, user); 
     }); 
 });
