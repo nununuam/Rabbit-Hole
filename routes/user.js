@@ -20,8 +20,8 @@ router.get("/logout",
     });
 
 router.get("/login", function (req, res) {
-    res.redirect("oauth/google"),
-    console.log("oauth login")
+    res.redirect("auth/google"),
+    console.log("auth login")
 })
 router.get("/", function (req, res) 
     { res.render("home", { user: req.user, }); 
@@ -34,8 +34,8 @@ router.get("/", function (req, res) {
 });
 
 router.get("/login", function (req, res) {
-    res.redirect("oauth/google");
-    console.log("oauth login");
+    res.redirect("auth/google");
+    console.log("auth login");
 })
 
 module.exports = router;
