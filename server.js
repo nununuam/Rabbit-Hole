@@ -53,6 +53,10 @@ app.get('/login', (req, res) => {
 app.get('/home', (req, res) => {
 	res.render("home");
 });
+app.post('/browse', (req, res) => {
+	res.render("watch")
+	console.log("post");
+});
 
 /* ====== Routes  ====== */
  require("./config/database");
