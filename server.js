@@ -65,6 +65,10 @@ app.post('/browse', (req, res) => {
 	console.log(req.body)
 	res.render("watch");
 });
+app.post('/browse', (req, res) => {
+	res.render("watch")
+	console.log("post");
+});
 
 /* 404 routes*/
 app.get((req, res) => {
