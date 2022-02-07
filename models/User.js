@@ -5,13 +5,13 @@ const userSchema = new mongoose.Schema({
     googleID: String,
     name: String,
     email: String,
-    uploadsurl: [String],
+   // uploadsurl: [String],
 },
     {timestamps:true}
 );
 const videoSchema = new mongoose.Schema({
     categories: [String],
-    //title: String,
+    name: String,
     links: String,
     views: {type: Number, min: 0},
 },

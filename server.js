@@ -58,12 +58,12 @@ app.get('/login', (req, res) => {
 });
 app.get('/home', (req, res) => {
 	res.render("home");
-	res.render("article", {article: found});
+	//res.render("article", {article: found});
 
 });
-app.post('/browse', (req, res) => {
+app.post('/upload', (req, res) => {
 	console.log(req.body)
-	res.render("watch");
+	res.render("browse");
 });
 
 /* 404 routes*/

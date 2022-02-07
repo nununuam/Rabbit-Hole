@@ -3,11 +3,11 @@ const { theUser, theVideo} = require("../models/User");
 // Index
 // grab all of the resource, toss into the ejs for rendering
 const idx = (req, res) => {
-    db.Article.find({}, (err, foundArticles) => {
+    theVideo.find({}, (err, foundtheVideo) => {
         if (err) res.send(err);
 
-        const context = { articles: foundArticles };
-        res.render("articles/index", context)
+        const context = { theVideo: foundtheVideo };
+        res.render("/browse", context)
     });
 };
 
@@ -39,16 +39,20 @@ const newArticle = (req, res) => {
 const create = (req, res) => {
     theVideo.create(req.body, (err, createdVideo) => {
         if (err) res.send(err);
+
+        console.log("its working");
         // allows us to add videos to the author
        
         theUser.findById(createdVideo.theUser).exec(function (err, foundUser) {
             if (err) res.send(err);
             // update the author articles array
-            foundUser.uploadsurl.push(createdVideo); // adds article to author
+            foundUser.categories.push(createdVideo.category);
+            foundUser.links.push(createdVideo.link); // adds article to author
             foundUser.save(); //saving the relationship to the database and commits to memory
             console.log(createdVideo);
-            res.redirect("/browse")
+            res.redirect("/browse");
         });
+        
     }
 )};
 
@@ -121,6 +125,6 @@ const destroy = (req, res) => {
 }
 
  module.exports = {
-   
+   create,
   };
   
