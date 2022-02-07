@@ -16,7 +16,7 @@
         <a href="/upload">Upload</a>
         <a href="/browse">Browse</a>
         <a href="/login">Login</a>
-        <a> <% Users.name%></a>
+       
     </div>
     <h2 class="title">Upload</h2>
     <!--<div>
@@ -36,10 +36,11 @@
           placeholder="link to the video">
       </div>
     -->
-      <form action="/browse" method="POST">
+      <form action="/upload" method="POST">
         <input type="text" placeholder="title" name="title">
         <input type="text" placeholder="link" name="link">
         <button type="submit">Submit</button>
       </form>
+      
 </body>
 </html>

@@ -42,7 +42,12 @@ app.get('/browse', (req, res) => {
 	res.render("browse");
 });
 app.get('/upload', (req, res) => {
-	console.log('upload')
+	console.log('upload', )
+	res.render("upload", 
+	{ user: req.user });
+});
+app.post('/upload', (req, res) => {
+	console.log('upload', )
 	res.render("upload", 
 	{ user: req.user });
 });
@@ -53,7 +58,10 @@ app.get('/login', (req, res) => {
 app.get('/home', (req, res) => {
 	res.render("home");
 });
-
+app.post('/browse', (req, res) => {
+	console.log(req.body)
+	res.render("watch");
+});
 /* ====== Routes  ====== */
  require("./config/database");
  require("./config/passport");

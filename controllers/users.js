@@ -1,5 +1,5 @@
 const Users = require('../models/users');
-  
+ /*
 function index(req, res, next) {
   Users.find({}, function(err, users) {
     res.render('home', {
@@ -20,8 +20,10 @@ function index(req, res, next) {
 
   }
 
+
   module.exports = {
     index,
     addVideo,
     delVideo
   };
+  */
