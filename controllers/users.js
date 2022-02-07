@@ -1,7 +1,7 @@
-const Users = require('../models/users');
- /*
+const db = require('../models/users');
+ 
 function index(req, res, next) {
-  Users.find({}, function(err, users) {
+  db.find({}, function(err, users) {
     res.render('home', {
       users,
       user: req.user
@@ -26,4 +26,4 @@ function index(req, res, next) {
     addVideo,
     delVideo
   };
-  */
+  
