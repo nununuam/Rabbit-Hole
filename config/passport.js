@@ -1,6 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const Users = require("../models/User");
+const { theUser, theVideo} = require("../models/User");
 
 passport.use(new GoogleStrategy({ 
       clientID: process.env.Google_Client_ID, 
@@ -9,12 +9,12 @@ passport.use(new GoogleStrategy({
     }, 
     function (accessToken, refreshToken, profile, cb) {
       console.log(accessToken, "acess Token", refreshToken)
-        Users.findOne({ googleId: profile.id }, function (err, user) {
+        theUser.findOne({ googleId: profile.id }, function (err, user) {
             if (err) return cb(err);
             if (user) {
               return cb(null, user);
             } else {
-              const newUsers = new Users({
+              const newUsers = new theUser({
                 name: profile.displayName,
                 email: profile.emails[0].value,
                 googleID: profile.id,
@@ -33,7 +33,7 @@ passport.serializeUser(function(user, done){
     done(null, user.id)
 });
 passport.deserializeUser(function (id, done) { 
-    Users.findById(id, function (err, user) { 
+    theUser.findById(id, function (err, user) { 
         done(err, user); 
     }); 
 });
