@@ -11,38 +11,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Rajdhani&display=swap" rel="stylesheet">
 </head>
 <body>
+    <p>Editing page</p>
     <div class="navbar">
         <a class="active" href="/home">Home</a>
-        <%if (user){ %>
-            <a href="/upload">Upload</a>
-         <% }%>
+        <a href="/upload">Upload</a>
+        <a href="/edit">Edit</a>
         <a href="/browse">Browse</a>
-        <a href="/login">Login</a>
+      
+       
     </div>
-    <section>
-        <ul>
-            <% videos.forEach ( video => { %>
-                <tr>
-                <td>
-                    <form action="/upload" method="POST"></form>
-                    </td>
-                       <td> <input type="text" value="<%= video.title %>" name="categories">
-                       </td>
-                       <td>
-                        <input type="text" value="<a href='<%= video.links %>''>youtube link</a>"" name="links">
-                       </td>
-                       <td>
-                        <input type="text" value="<%= video.categories%>" name="title">
-                       </td>
-                       <td>
-                        <input type="text" value="<%= video.views %> " name="title">
-                       </td>
-                       <td>
-                        <input type="submit" value="Edit" >
-                       </td>
-            </tr>
-            <% }) %>
-         </ul>
-    </section>
+
+<table>
+   
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Categories</th>
+        <th>Links</th>
+        <th></th>
+    </tr>
+    
+    <% videos.forEach ( video => { %>
+        <tr>
+            <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.title %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.categories %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.links %>" ></td>
+            <td><input type="submit" value="Delete" form=<%= video.id %> /></td>
+        </tr>
+        <% }) %>
+
+</table>
+<table>
+   
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Categories</th>
+        <th>Links</th>
+        <th></th>
+    </tr>
+    
+    <% videos.forEach ( video => { %>
+        <tr>
+            <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.title %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.categories %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.links %>" ></td>
+            <td><input type="submit" value="Edit" form=<%= video.id %> /></td>
+        </tr>
+        <% }) %>
+
+</table>
+    
 </body>
 </html>
