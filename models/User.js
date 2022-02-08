@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const videoSchema = new mongoose.Schema({
     categories: [String],
     links: String,
-    views: {type: Number, min: 0},
+    title: String,
+    views: {type: Number, min: 1, default: 1},
 },
     {timestamps: true}
 );

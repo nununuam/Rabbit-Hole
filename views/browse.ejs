@@ -19,6 +19,17 @@
         <a href="/browse">Browse</a>
         <a href="/login">Login</a>
     </div>
+    <section>
+        
+        <ul>
+            <% videos.forEach ( video => { %>
+            <li><%= video.title %></li>
+            <li><a href="<%= video.links %>">youtube link</a></li>
+            <li><%= video.categories%></li>
+            <li><%= video.views %></li>
+            <% }) %>
+         </ul>
+    </section>
 
   
     

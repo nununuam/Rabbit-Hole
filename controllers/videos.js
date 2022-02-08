@@ -3,7 +3,14 @@ const {theUser, theVideo} = require("../models/User");
 
 // create video
 const createdVideo = (req, res) =>{
-    theVideo.create(req.body, (err, createdVideo) =>{
+    const object = {
+        title: req.body.title,
+        categories: req.body.categories.split(" "),
+        links: req.body.links,
+    }
+    
+    
+    theVideo.create(object, (err, createdVideo) =>{
        // console.log(createdVideo);
         console.log(`thgfggh ${theUser}`);
         if (err) res.send(err);
@@ -18,6 +25,17 @@ const createdVideo = (req, res) =>{
     })
    res.redirect("/browse");
 }
+const browsing = (req, res) =>{
+    theVideo.find({}, (err, videos) =>{
+        if(err) res.send(err);
+
+        const context = {videos: videos, user: false};
+        res.render("browse", context);
+        console.log(videos);
+    })
+}
+
+
 /*
 // Index
 // grab all of the resource, toss into the ejs for rendering
@@ -143,6 +161,7 @@ const destroy = (req, res) => {
 }
 */
  module.exports = {
-   createdVideo
+   createdVideo,
+   browsing
   };
   
