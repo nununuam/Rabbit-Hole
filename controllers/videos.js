@@ -4,16 +4,16 @@ const {theUser, theVideo} = require("../models/User");
 // create video
 const createdVideo = (req, res) =>{
     theVideo.create(req.body, (err, createdVideo) =>{
-        console.log(createdVideo);
+       // console.log(createdVideo);
+        console.log(`thgfggh ${theUser}`);
         if (err) res.send(err);
         theUser.findById(req.user).exec(function (err, foundUser){
             if (err) res.send(err);
-            theUser.video.push(createdVideo);
+            foundUser.video.push(createdVideo);
             foundUser.save();
             createdVideo.save();
-            console.log(`found user ${foundUser}`);
-            console.log(`fcreated video ${createdVideo}`)
-    
+           // console.log(`found user ${foundUser}`);
+            //console.log(`fcreated video ${createdVideo}`)
         })
     })
    res.redirect("/browse");

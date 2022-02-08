@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     googleID: String,
     name: String,
     email: String,
-   video : [videoSchema]
+    video: [videoSchema]
 },
     {timestamps:true}
 );

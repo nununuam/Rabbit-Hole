@@ -16,7 +16,8 @@ const passport = require('passport');
 // Create the Express app
 const app = express();
 // returns an object that is our server
-const routes = require('./routes/user');
+const routeOauth = require('./routes/user');
+const routesVideo = require('./routes/video');
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  
@@ -24,7 +25,8 @@ app.use(session({ secret: "rabbitHole", resave: false, saveUninitialized: true, 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
-app.use("/", routes);
+app.use("/", routeOauth);
+app.use("/", routesVideo);
 
 
 /* ====== System Variables  ====== */
