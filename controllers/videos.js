@@ -1,13 +1,50 @@
-const { theUser, theVideo} = require("../models/User");
+const {theUser, theVideo} = require("../models/User");
 
+
+// create video
+const createdVideo = (req, res) =>{
+    const object = {
+        title: req.body.title,
+        categories: req.body.categories.split(" "),
+        links: req.body.links,
+    }
+    
+    
+    theVideo.create(object, (err, createdVideo) =>{
+       // console.log(createdVideo);
+        console.log(`thgfggh ${theUser}`);
+        if (err) res.send(err);
+        theUser.findById(req.user).exec(function (err, foundUser){
+            if (err) res.send(err);
+            foundUser.video.push(createdVideo);
+            foundUser.save();
+            createdVideo.save();
+           // console.log(`found user ${foundUser}`);
+            //console.log(`fcreated video ${createdVideo}`)
+        })
+    })
+   res.redirect("/browse");
+}
+const browsing = (req, res) =>{
+    theVideo.find({}, (err, videos) =>{
+        if(err) res.send(err);
+
+        const context = {videos: videos, user: false};
+        res.render("browse", context);
+        console.log(videos);
+    })
+}
+
+
+/*
 // Index
 // grab all of the resource, toss into the ejs for rendering
 const idx = (req, res) => {
-    db.Article.find({}, (err, foundArticles) => {
+    theVideo.find({}, (err, foundtheVideo) => {
         if (err) res.send(err);
 
-        const context = { articles: foundArticles };
-        res.render("articles/index", context)
+        const context = { theVideo: foundtheVideo };
+        res.render("/browse", context)
     });
 };
 
@@ -34,21 +71,24 @@ const newArticle = (req, res) => {
     });
 };
 
-// create article
 
 const create = (req, res) => {
     theVideo.create(req.body, (err, createdVideo) => {
         if (err) res.send(err);
+
+        console.log("its working");
         // allows us to add videos to the author
        
         theUser.findById(createdVideo.theUser).exec(function (err, foundUser) {
             if (err) res.send(err);
             // update the author articles array
-            foundUser.uploadsurl.push(createdVideo); // adds article to author
+            foundUser.categories.push(createdVideo.category);
+            foundUser.links.push(createdVideo.link); // adds article to author
             foundUser.save(); //saving the relationship to the database and commits to memory
             console.log(createdVideo);
-            res.redirect("/browse")
+            res.redirect("/browse");
         });
+        
     }
 )};
 
@@ -119,8 +159,9 @@ const destroy = (req, res) => {
         })
     })
 }
-
+*/
  module.exports = {
-   
+   createdVideo,
+   browsing
   };
   

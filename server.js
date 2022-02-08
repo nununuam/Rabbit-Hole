@@ -16,7 +16,8 @@ const passport = require('passport');
 // Create the Express app
 const app = express();
 // returns an object that is our server
-const routes = require('./routes/user');
+const routeOauth = require('./routes/user');
+const routesVideo = require('./routes/video');
 	
 /* ====== Middleware  ====== */ 
 app.use(express.urlencoded({ extended: true }));  
@@ -24,7 +25,8 @@ app.use(session({ secret: "rabbitHole", resave: false, saveUninitialized: true, 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
-app.use("/", routes);
+app.use("/", routeOauth);
+app.use("/", routesVideo);
 
 
 /* ====== System Variables  ====== */
@@ -33,37 +35,39 @@ const PORT = 4000; // full caps signify a config variable
 /* ====== App Configuration  ====== */
 // app.set
 app.set("view engine", "ejs");
+app.get('/login', (req, res) => {
+	console.log('login')
+	res.render("login");
+});
+
 app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
 app.get('/browse', (req, res) => {
 	console.log('browse')
-	res.render("browse");
+	res.render("browse", {user: req.user});
+	
 });
 app.get('/upload', (req, res) => {
-	console.log('upload', )
+	console.log('upload1', )
 	res.render("upload", 
 	{ user: req.user });
 });
 app.post('/upload', (req, res) => {
 	console.log('upload');
-	res.render("upload");
+	res.render("upload"), { user: req.user };
 	console.log(req.body);
-	{ user: req.user };
 });
-app.get('/login', (req, res) => {
-	console.log('login')
-	res.render("login");
-});
+
 app.get('/home', (req, res) => {
 	res.render("home");
-	res.render("article", {article: found});
+	//res.render("article", {article: found});
 
 });
-app.post('/browse', (req, res) => {
+app.post('/upload', (req, res) => {
 	console.log(req.body)
-	res.render("watch");
+	res.render("browse");
 });
 app.post('/browse', (req, res) => {
 	res.render("watch")
