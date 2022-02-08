@@ -1,4 +1,4 @@
-const { theUser, theVideo} = require("../models/User");
+const db = require("../models/User");
 
 // Index
 // grab all of the resource, toss into the ejs for rendering
