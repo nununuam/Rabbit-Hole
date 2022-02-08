@@ -69,18 +69,6 @@ app.post('/upload', (req, res) => {
 	res.render("browse");
 });
 
-app.get('/edit', (req, res) => {
-	console.log('editget', )
-	res.render("edit", 
-	{ user: req.user });
-});
-app.post('/edit', (req, res) => {
-	console.log('editpost');
-	res.render("browse"), { user: req.user };
-	console.log(req.body);
-
-});
-
 /* 404 routes*/
 app.get((req, res) => {
 	res.send("404! error! page not found :(");
