@@ -1,7 +1,8 @@
 # Rabbit-Hole
 
 ## Concept:
-Uplaod youtube videos and organize them with the catagory of your choosing 
+Uplaod and save youtube videos and organize them with the catagory of your choosing. 
+
 ## Wireframes:
 
 ## Technologies Used:
@@ -16,9 +17,13 @@ Uplaod youtube videos and organize them with the catagory of your choosing
 
 
 ## Challenges:
+CRUD
+Oauth
+Deplyment
 
 
 ## Additional information:
 
 
 ## App Demo
+https://github.com/abled007/Rabbit-Hole
