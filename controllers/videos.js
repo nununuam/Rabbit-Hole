@@ -9,7 +9,6 @@ const createdVideo = (req, res) =>{
         links: req.body.links,
     }
     
-    
     theVideo.create(object, (err, createdVideo) =>{
        // console.log(createdVideo);
         console.log(`thgfggh ${theUser}`);
@@ -25,6 +24,7 @@ const createdVideo = (req, res) =>{
     })
    res.redirect("/browse");
 }
+
 const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
@@ -33,6 +33,10 @@ const browsing = (req, res) =>{
         res.render("browse", context);
         console.log(videos);
     })
+}
+
+const editVideo = (req, res) =>{
+   
 }
 
 
@@ -162,6 +166,7 @@ const destroy = (req, res) => {
 */
  module.exports = {
    createdVideo,
-   browsing
+   browsing,
+   editVideo
   };
   

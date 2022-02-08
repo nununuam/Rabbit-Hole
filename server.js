@@ -59,7 +59,6 @@ app.post('/upload', (req, res) => {
 	res.render("upload"), { user: req.user };
 	console.log(req.body);
 });
-
 app.get('/home', (req, res) => {
 	res.render("home");
 	//res.render("article", {article: found});
@@ -69,9 +68,17 @@ app.post('/upload', (req, res) => {
 	console.log(req.body)
 	res.render("browse");
 });
-app.post('/browse', (req, res) => {
-	res.render("watch")
-	console.log("post");
+
+app.get('/edit', (req, res) => {
+	console.log('editget', )
+	res.render("edit", 
+	{ user: req.user });
+});
+app.post('/edit', (req, res) => {
+	console.log('editpost');
+	res.render("browse"), { user: req.user };
+	console.log(req.body);
+
 });
 
 /* 404 routes*/
