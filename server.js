@@ -62,7 +62,7 @@ app.get('/home', (req, res) => {
 
 });
 app.post('/upload', (req, res) => {
-	console.log(req.body)
+	//console.log(req.body)
 	res.render("browse");
 });
 
