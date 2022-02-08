@@ -13,27 +13,36 @@
 <body>
     <div class="navbar">
         <a class="active" href="/home">Home</a>
-
         <%if (user){ %>
             <a href="/upload">Upload</a>
          <% }%>
         <a href="/browse">Browse</a>
         <a href="/login">Login</a>
-
     </div>
     <section>
-        
         <ul>
             <% videos.forEach ( video => { %>
-            <li><%= video.title %></li>
-            <li><a href="<%= video.links %>">youtube link</a></li>
-            <li><%= video.categories%></li>
-            <li><%= video.views %></li></br>
+                <tr>
+                <td>
+                    <form action="/upload" method="POST"></form>
+                    </td>
+                       <td> <input type="text" value="<%= video.title %>" name="categories">
+                       </td>
+                       <td>
+                        <input type="text" value="<a href='<%= video.links %>''>youtube link</a>"" name="links">
+                       </td>
+                       <td>
+                        <input type="text" value="<%= video.categories%>" name="title">
+                       </td>
+                       <td>
+                        <input type="text" value="<%= video.views %> " name="title">
+                       </td>
+                       <td>
+                        <input type="submit" value="Edit" >
+                       </td>
+            </tr>
             <% }) %>
          </ul>
     </section>
-
-  
-    
 </body>
 </html>
