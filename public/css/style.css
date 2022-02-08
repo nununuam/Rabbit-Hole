@@ -1,11 +1,11 @@
 body {
-    background-color: #333333;
+    background-color: #a7a7a7;
     margin: 0;
     font-family: 'Questrial', sans-serif;
 }
 
 .navbar {
-    background-color: #555151;
+    background-color: #ffffff;
     overflow: hidden;
     color: white;
     padding: 10px; 
@@ -15,10 +15,12 @@ body {
     padding: 10px 10px;
     font-size: 20px;
     text-align: right;
+    font-family: ;
 }
 
 .navbar a.active {
-    background-color: #e50000;
+    background-color: #4343e4;
+
 }
 
 h1 {
@@ -55,3 +57,9 @@ label {
     font-size: 50px;
 }
 
+.grid {
+    display: grid;
+    height: fit-content;
+    grid-template: repeat(3, lfr);
+    gap: 50px 100px;
+}
