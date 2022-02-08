@@ -22,7 +22,7 @@ Oauth
 Deplyment
 
 
-## Additional information:
+## User Story:
 
 ## User Story:
 As a user:
