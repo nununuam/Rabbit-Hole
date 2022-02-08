@@ -36,11 +36,28 @@ const browsing = (req, res) =>{
 }
 
 const editVideo = (req, res) =>{
-   
+    theVideo.find({}, (err, videos) =>{
+        console.log(req);
+        if(err) res.send(err);
+        const videosPlaceholder = 
+            videos.map(video => ({id: video._id.toString(), title: video.title, links: video.links, categories: video.categories}));
+            console.log("videos: ", videosPlaceholder );
+
+        const context = {videos: videosPlaceholder, user: false};
+        res.render("edit", context);
+    });
 }
 
 const destroyVideo = (req, res) =>{
-   
+    const key = {
+        title: req.body.title,
+        links: req.body.links,
+    }
+    console.log("callsed destory", req.body)
+    theVideo.findOne(key, (err, foundVideo) =>{
+        if(err) res.send(err);
+        res.redirect("/edit")
+    });
 }
 
  module.exports = {

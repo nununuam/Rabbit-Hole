@@ -11,16 +11,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Rajdhani&display=swap" rel="stylesheet">
 </head>
 <body>
+    <p>Editing page</p>
     <div class="navbar">
         <a class="active" href="/home">Home</a>
-        <%if (user){ %>
-            <a href="/upload">Upload</a>
-         <% }%>
+        <a href="/upload">Upload</a>
+        <a href="/edit">Edit</a>
         <a href="/browse">Browse</a>
-        <a href="/login">Login</a>
+      
+       
     </div>
-    <h1>This is the editing page</h1>
 
+<table>
+   
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Categories</th>
+        <th>Links</th>
+        <th></th>
+    </tr>
+    
+    <% videos.forEach ( video => { %>
+        <tr>
+            <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.title %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.categories %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.links %>" ></td>
+            <td><input type="submit" value="Delete" form=<%= video.id %> /></td>
+        </tr>
+        <% }) %>
+
+</table>
+<table>
+   
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Categories</th>
+        <th>Links</th>
+        <th></th>
+    </tr>
+    
+    <% videos.forEach ( video => { %>
+        <tr>
+            <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.title %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.categories %>" > </td>
+            <td><input type="text" form=<%= video.id %> readonly value="<%= video.links %>" ></td>
+            <td><input type="submit" value="Edit" form=<%= video.id %> /></td>
+        </tr>
+        <% }) %>
+
+</table>
     
 </body>
 </html>
