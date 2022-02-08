@@ -68,6 +68,7 @@ app.post('/upload', (req, res) => {
 	console.log(req.body)
 	res.render("browse");
 });
+
 app.get('/edit', (req, res) => {
 	console.log('editget', )
 	res.render("edit", 
@@ -77,6 +78,7 @@ app.post('/edit', (req, res) => {
 	console.log('editpost');
 	res.render("browse"), { user: req.user };
 	console.log(req.body);
+
 });
 
 /* 404 routes*/
