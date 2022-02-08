@@ -33,36 +33,38 @@ const PORT = 4000; // full caps signify a config variable
 /* ====== App Configuration  ====== */
 // app.set
 app.set("view engine", "ejs");
+app.get('/login', (req, res) => {
+	console.log('login')
+	res.render("login");
+});
+
 app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
 app.get('/browse', (req, res) => {
 	console.log('browse')
-	res.render("browse");
+	res.render("browse", {user: req.user});
+	
 });
 app.get('/upload', (req, res) => {
-	console.log('upload', )
+	console.log('upload1', )
 	res.render("upload", 
 	{ user: req.user });
 });
 app.post('/upload', (req, res) => {
 	console.log('upload');
-	res.render("upload");
+	res.render("upload"), { user: req.user };
 	console.log(req.body);
-	{ user: req.user };
 });
-app.get('/login', (req, res) => {
-	console.log('login')
-	res.render("login");
-});
+
 app.get('/home', (req, res) => {
 	res.render("home");
 	//res.render("article", {article: found});
 
 });
 app.post('/upload', (req, res) => {
-	//console.log(req.body)
+	console.log(req.body)
 	res.render("browse");
 });
 

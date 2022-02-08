@@ -1,5 +1,24 @@
-const db = require("../models/User");
+const {theUser, theVideo} = require("../models/User");
 
+
+// create video
+const createdVideo = (req, res) =>{
+    theVideo.create(req.body, (err, createdVideo) =>{
+        console.log(createdVideo);
+        if (err) res.send(err);
+        theUser.findById(req.user).exec(function (err, foundUser){
+            if (err) res.send(err);
+            theUser.video.push(createdVideo);
+            foundUser.save();
+            createdVideo.save();
+            console.log(`found user ${foundUser}`);
+            console.log(`fcreated video ${createdVideo}`)
+    
+        })
+    })
+   res.redirect("/browse");
+}
+/*
 // Index
 // grab all of the resource, toss into the ejs for rendering
 const idx = (req, res) => {
@@ -34,22 +53,7 @@ const newArticle = (req, res) => {
     });
 };
 
-// create article
-const createdVideo = (req, res) =>{
-    db.theVideo.create(req.body, (err, createdVideo) =>{
-        if (err) res.send(err);
-        db.theUser.findById(req.user).exec(function (err, foundUser){
-            if (err) res.send(err);
-            db.theUser.video.push(createdVideo);
-            foundUser.save();
-            createdVideo.save();
-            console.log(`found user ${foundUser}`);
-            console.log(`fcreated video ${createdVideo}`)
-    
-        })
-    })
-   res.redirect("/browse");
-}
+
 const create = (req, res) => {
     theVideo.create(req.body, (err, createdVideo) => {
         if (err) res.send(err);
@@ -137,7 +141,7 @@ const destroy = (req, res) => {
         })
     })
 }
-
+*/
  module.exports = {
    createdVideo
   };
