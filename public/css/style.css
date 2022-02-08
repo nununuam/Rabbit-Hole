@@ -1,3 +1,11 @@
+.grid {
+    display: grid;
+    height: fit-content;
+    grid-template: repeat(3, lfr);
+    gap: 50px 100px;
+    font-family:'Montserrat', sans-serif;
+}
+
 body {
     background-color: #a7a7a7;
     margin: 0;
@@ -9,18 +17,18 @@ body {
     overflow: hidden;
     color: white;
     padding: 10px; 
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar a {
     padding: 10px 10px;
     font-size: 20px;
     text-align: right;
-    font-family: ;
 }
 
 .navbar a.active {
-    background-color: #4343e4;
-
+    background-color: #8c8cff;
+    margin: 0px;
 }
 
 h1 {
@@ -37,11 +45,14 @@ button {
     color: white;
     background-color: transparent;
     font-size: 50px;
-    margin: auto;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .footer {
     text-align: center;
+    padding: 10px;
+    background-color:#ffffff;
 }
 
 .title {
@@ -55,11 +66,4 @@ label {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 50px;
-}
-
-.grid {
-    display: grid;
-    height: fit-content;
-    grid-template: repeat(3, lfr);
-    gap: 50px 100px;
 }

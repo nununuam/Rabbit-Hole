@@ -9,31 +9,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Rajdhani&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="navbar">
         <a class="active" href="/home">Home</a>
 
-        <%if (user){ %>
+        
             <a href="/upload">Upload</a>
-         <% }%>
+         
         <a href="/browse">Browse</a>
         <a href="/login">Login</a>
+        
 
     </div>
+    <div class="grid">
+        <button class
     <section>
-        <div class="grid">
+        <div>
         <ul>
+            <div>
             <% videos.forEach ( video => { %>
             <li><%= video.title %></li>
             <li><a href="<%= video.links %>">youtube link</a></li>
-            <li><%= video.categories%></li>
-            <li><%= video.views %></li></br>
+            <li>#<%= video.categories%></li>
+            <li>views: <%= video.views %></li></br>
             <% }) %>
+            </div>
          </ul>
         </div>
     </section>
-
+</div>
   
     
 </body>
