@@ -68,6 +68,10 @@ app.post('/upload', (req, res) => {
 	console.log(req.body)
 	res.render("browse");
 });
+app.get("/edit/:id",(req, res) =>{
+	const id = req.params.id;
+	console.log(id)
+} )
 
 /* 404 routes*/
 app.get((req, res) => {
