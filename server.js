@@ -57,7 +57,7 @@ app.get('/upload', (req, res) => {
 app.post('/upload', (req, res) => {
 	console.log('upload');
 	res.render("upload",{ user: req.user });
-	console.log(req.body);
+	//console.log(req.body);
 });
 app.get('/home', (req, res) => {
 	res.render("home");
