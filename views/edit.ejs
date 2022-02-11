@@ -31,12 +31,14 @@
     
     <% videos.forEach ( video => { %>
         <tr>
-            <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
-            <td><input type="text" form=<%= video.id %> placeholder="<%= video.title %>" > </td>
-            <td><input type="text" form=<%= video.id %> placeholder="<%= video.categories %>" > </td>
-            <td><input type="text" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
+            <td><form id=<%= video.id %> ></form></td>
+            <td><input name="title" type="text" form=<%= video.id %> placeholder="<%= video.title %>" > </td>
+
+            <td><input name="categories" type="text" form=<%= video.id %> placeholder="<%= video.categories %>" > </td>
+
+            <td><input type="text" name="links" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
             <td>
-                <form action="/videos/edit/<%= video._id %>" method="POST">
+                <form action="/videos/edit/<%= video._id %>" method="PUT">
                     <input type="submit" value="Edit" />
                 </form>
             </td>

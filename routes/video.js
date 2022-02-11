@@ -7,5 +7,5 @@ router.post("/upload", ctrl.createdVideo);
 router.get("/browse", ctrl.browsing);
 router.get("/edit", ctrl.editing);
 router.get("/browse/:id", ctrl.destroyVideo);
-//router.post("/browse/:id", ctrl.editVideo);
+router.get("/edit/:id", ctrl.editVideo);
 module.exports = router;

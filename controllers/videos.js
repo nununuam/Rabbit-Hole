@@ -53,21 +53,20 @@ const editing = (req, res) =>{
     
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
-   theVideo.findByIdAndUpdate(req.params.id,
-    { 
-        $set: {
-            //title: req.body
-            //body: req.body
-            ...req.body,
+   
+        theVideo.findByIdAndUpdate(req.params.id,
+        { 
+            $set: {
+                ...req.body,
+            },
         },
-    },
-    { new: true },
-    // callback function AFTER the update has completed
-    (err, updatedArticle) => {
-        if (err) res.send(err);
-
-        res.redirect("/videos/browse");
-    });
+        { new: true },
+        
+        (err, updatedvideo) => {
+            if (err) res.send(err);
+            updatedvideo.save();
+            res.redirect("/videos/browse");
+        });
 }
 
 const destroyVideo = (req, res) =>{
