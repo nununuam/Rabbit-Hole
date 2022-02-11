@@ -83,7 +83,7 @@ const destroyVideo = (req, res) =>{
 
  module.exports = {
    home,
-    createdVideo,
+   createdVideo,
    upload,
    browsing,
    editVideo,
