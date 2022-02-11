@@ -22,7 +22,7 @@ const createdVideo = (req, res) =>{
             //console.log(`fcreated video ${createdVideo}`)
         })
     })
-   res.redirect("/browse");
+   res.redirect("browse");
 }
 
 
@@ -30,14 +30,10 @@ const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
 
-        const context = {videos: videos, user: req.user};
-        res.render("browse", context);
-        //console.log(videos);
-        
+        const context = {videos: videos, user: false};
+        res.render("browse", context);  
     })
 }
-
-
 
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
