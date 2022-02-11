@@ -41,21 +41,21 @@ const browsing = (req, res) =>{
 
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
-   theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
+   theVideo.findByIdAndUpdate(req.params.id,
+    { 
+        $set: {
+            //title: req.body
+            //body: req.body
+            ...req.body,
+        },
+    },
+    { new: true },
+    // callback function AFTER the update has completed
+    (err, updatedArticle) => {
         if (err) res.send(err);
-        /*
-        console.log('user is', user);
-        theUser.findById(req.user.id, (err, foundUser) =>
-        {
-            console.log('found user:', foundUser);
-            foundUser.video.remove(deletedVideo);
-            foundUser.save();
-            res.redirect("/browse");
-        })
-        */
-     })
-     res.redirect("/videos/browse");
-     
+
+        res.redirect("/videos/browse");
+    });
 }
 
 const destroyVideo = (req, res) =>{
