@@ -42,8 +42,8 @@ const browsing = (req, res) =>{
     })
 }
 
-const edit = (req, res) =>{
-    theVideo.find(req.params.id, (err, videos) =>{
+const editing = (req, res) =>{
+    theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
 
         const context = {videos: videos,  user: req.user};
@@ -95,7 +95,7 @@ const destroyVideo = (req, res) =>{
    createdVideo,
    upload,
    browsing,
-   edit,
+   editing,
    editVideo,
    destroyVideo
   }
