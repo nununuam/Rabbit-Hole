@@ -30,11 +30,14 @@
         <ul>
             <div>
             <% videos.forEach ( video => { %>
-            <li><%= video.title %></li>
-            <li><a href="<%= video.links %>">youtube link</a></li>
-            <li>#<%= video.categories%></li>
-            <li>views: <%= video.views %></li><br>
-
+                
+                    <li><%= video.title %></li>
+                    <li><a href="<%= video.links %>">youtube link</a></li>
+                    <li>#<%= video.categories%></li>
+                    <li>views: <%= video.views %></li><br>
+                    <form action="/video/<%= video._id %>" method="DELETE">
+                        <input type="submit" value="Delete" />
+                    </form>
             <% }) %>
             </div>
          </ul>

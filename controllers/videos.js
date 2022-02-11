@@ -11,7 +11,7 @@ const createdVideo = (req, res) =>{
     
     theVideo.create(object, (err, createdVideo) =>{
        // console.log(createdVideo);
-        console.log(`thgfggh ${theUser}`);
+        //console.log(`thgfggh ${theUser}`);
         if (err) res.send(err);
         theUser.findById(req.user).exec(function (err, foundUser){
             if (err) res.send(err);
@@ -25,6 +25,7 @@ const createdVideo = (req, res) =>{
    res.redirect("/browse");
 }
 
+
 const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
@@ -34,6 +35,21 @@ const browsing = (req, res) =>{
         console.log(videos);
     })
 }
+
+const show = (req, res) => {
+    theUser.findById(req.params.id)
+    // turns ids into the data from their model
+        //.populate("author")
+        // functioning like db.Author.findById()
+        // allowing us to reference documents in other collections by automatically replacing the specified path/"field" in the document(s) from other collections
+        .exec((err, foundArticle) => {
+            if (err) res.send(err);
+
+            const context = { videos: foundArticle };
+
+            res.render("browse/show", context)
+        });
+};
 
 const editVideo = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
@@ -59,6 +75,21 @@ const destroyVideo = (req, res) =>{
         res.redirect("/edit")
     });
 }
+const destroy = (req, res) => {
+    db.Article.findByIdAndDelete(req.params.id, (err, deletedArticle) => {
+        if (err) res.send(err);
+
+        // we find the author, take the author, remove the article FROM the author and then remove the ID that we put in the array from memory
+
+        db.Author.findById(deletedArticle.author, (err, foundAuthor) => {
+            foundAuthor.articles.remove(deletedArticle);
+            foundAuthor.save();
+
+            res.redirect("/articles")
+        })
+    })
+}
+
 
  module.exports = {
    createdVideo,
