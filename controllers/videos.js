@@ -40,16 +40,22 @@ const browsing = (req, res) =>{
 
 
 const editVideo = (req, res) =>{
-    theVideo.find({}, (err, videos) =>{
-        //console.log(req);
-        if(err) res.send(err);
-        const videosPlaceholder = 
-            videos.map(video => ({id: video._id.toString(), title: video.title, links: video.links, categories: video.categories}));
-            console.log("videos: ", videosPlaceholder );
-
-        const context = {videos: videosPlaceholder, user: false};
-        res.render("edit", context);
-    });
+    console.log("yo yo yot");
+   theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
+        if (err) res.send(err);
+        /*
+        console.log('user is', user);
+        theUser.findById(req.user.id, (err, foundUser) =>
+        {
+            console.log('found user:', foundUser);
+            foundUser.video.remove(deletedVideo);
+            foundUser.save();
+            res.redirect("/browse");
+        })
+        */
+     })
+     res.redirect("/videos/browse");
+     
 }
 
 const destroyVideo = (req, res) =>{
@@ -77,6 +83,5 @@ const destroyVideo = (req, res) =>{
    browsing,
    editVideo,
    destroyVideo
-
   };
   

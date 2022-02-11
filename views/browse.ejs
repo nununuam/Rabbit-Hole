@@ -35,9 +35,17 @@
                     <li><a href="<%= video.links %>">youtube link</a></li>
                     <li>#<%= video.categories%></li>
                     <li>views: <%= video.views %></li><br>
+                <section>
                     <form action="/videos/browse/<%= video._id %>" method="DELETE">
                         <input type="submit" value="Delete" />
                     </form>
+                </section>
+                <section>
+                    <form action="/videos/browse/<%= video._id %>" method="POST">
+                        <input type="submit" value="Edit" />
+                    </form>
+                </section>
+                   
             <% }) %>
             </div>
          </ul>
