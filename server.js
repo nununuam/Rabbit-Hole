@@ -40,23 +40,6 @@ app.get('/', (req, res) => {
 	res.render("home");
 });
 
-/*
-app.get('/upload', (req, res) => {
-	console.log('upload1', )
-	res.render("upload", 
-	{ user: req.user });
-});
-app.post('/upload', (req, res) => {
-	console.log('upload');
-	res.render("browse",{ user: req.user });
-	//console.log(req.body);
-});
-app.get('/home', (req, res) => {
-	res.render("home");
-	//res.render("article", {article: found});
-
-});
-*/
 
 /* 404 routes*/
 app.get((req, res) => {
