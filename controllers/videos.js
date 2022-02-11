@@ -22,7 +22,7 @@ const createdVideo = (req, res) =>{
             //console.log(`fcreated video ${createdVideo}`)
         })
     })
-   res.redirect("/browse");
+   res.redirect("/browse",);
 }
 
 
@@ -30,9 +30,10 @@ const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
 
-        const context = {videos: videos, user: false};
+        const context = {videos: videos, user: req.user};
         res.render("browse", context);
         console.log(videos);
+        
     })
 }
 
@@ -65,30 +66,9 @@ const editVideo = (req, res) =>{
 }
 
 const destroyVideo = (req, res) =>{
-    const key = {
-        title: req.body.title,
-        links: req.body.links,
-    }
-    console.log("callsed destory", req.body)
-    theVideo.findOne(key, (err, foundVideo) =>{
-        if(err) res.send(err);
-        res.redirect("/edit")
-    });
+    
 }
-const destroy = (req, res) => {
-    db.Article.findByIdAndDelete(req.params.id, (err, deletedArticle) => {
-        if (err) res.send(err);
 
-        // we find the author, take the author, remove the article FROM the author and then remove the ID that we put in the array from memory
-
-        db.Author.findById(deletedArticle.author, (err, foundAuthor) => {
-            foundAuthor.articles.remove(deletedArticle);
-            foundAuthor.save();
-
-            res.redirect("/articles")
-        })
-    })
-}
 
 
  module.exports = {
@@ -96,5 +76,6 @@ const destroy = (req, res) => {
    browsing,
    editVideo,
    destroyVideo
+
   };
   

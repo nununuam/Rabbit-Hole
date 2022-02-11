@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/public', express.static('public'));
 app.use("/", routeOauth);
-app.use("/", routesVideo);
+app.use("/videos", routesVideo);
 
 /* ====== System Variables  ====== */
 const PORT = 4000; // full caps signify a config variable
@@ -39,13 +39,8 @@ app.get('/', (req, res) => {
 	console.log('here')
 	res.render("home");
 });
-app.get('/browse', (req, res) => {
-	console.log('browse')
-	res.render("browse", {user: req.user});
-});
-app.delete("/browse", (req, res) => {
-	res.render("browse",{user: req.user})
-});
+
+
 app.get('/upload', (req, res) => {
 	console.log('upload1', )
 	res.render("upload", 
@@ -53,7 +48,7 @@ app.get('/upload', (req, res) => {
 });
 app.post('/upload', (req, res) => {
 	console.log('upload');
-	res.render("upload",{ user: req.user });
+	res.render("browse",{ user: req.user });
 	//console.log(req.body);
 });
 app.get('/home', (req, res) => {
@@ -61,15 +56,7 @@ app.get('/home', (req, res) => {
 	//res.render("article", {article: found});
 
 });
-app.post('/upload', (req, res) => {
-	//console.log(req.body)
-	res.render("browse",{ user: req.user });
-});
 
-app.get("/edit/:id",(req, res) =>{
-	const id = req.params.id;
-	console.log(id)
-} )
 
 /* 404 routes*/
 app.get((req, res) => {
