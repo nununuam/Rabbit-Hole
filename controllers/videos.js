@@ -42,6 +42,15 @@ const browsing = (req, res) =>{
     })
 }
 
+const edit = (req, res) =>{
+    theVideo.find(req.params.id, (err, videos) =>{
+        if(err) res.send(err);
+
+        const context = {videos: videos,  user: req.user};
+        res.render("edit", context);  
+    })
+}
+    
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
    theVideo.findByIdAndUpdate(req.params.id,
@@ -86,7 +95,7 @@ const destroyVideo = (req, res) =>{
    createdVideo,
    upload,
    browsing,
+   edit,
    editVideo,
    destroyVideo
-  };
-  
+  }
