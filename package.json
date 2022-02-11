@@ -1,7 +1,7 @@
 {
   "name": "package.json",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Concept: Uplaod and save youtube videos and organize them with the catagory of your choosing.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

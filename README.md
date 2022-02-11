@@ -23,8 +23,6 @@ Deplyment
 
 
 ## User Story:
-
-## User Story:
 As a user:
 
 I want to be able to watch previous videos.

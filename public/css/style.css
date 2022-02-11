@@ -1,34 +1,28 @@
-.grid {
-    display: grid;
-    height: fit-content;
-    grid-template: repeat(3, lfr);
-    gap: 50px 100px;
-    font-family:'Montserrat', sans-serif;
-}
-
 body {
-    background-color: #a7a7a7;
+    background-color: #292D3E;
     margin: 0;
     font-family: 'Questrial', sans-serif;
+    text-align: center;
 }
 
 .navbar {
-    background-color: #ffffff;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(228,23,180,1) 33%, rgba(4,194,201,1) 70%, rgba(2,67,69,1) 100%);
     overflow: hidden;
     color: white;
-    padding: 10px; 
+    padding: 15px;
     font-family: 'Montserrat', sans-serif;
 }
 
 .navbar a {
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 20px;
-    text-align: right;
+    text-align: center;
+    text-decoration: none;
 }
 
-.navbar a.active {
-    background-color: #8c8cff;
-    margin: 0px;
+.navbar a.hover {
+    background-color: transparent;
 }
 
 h1 {
@@ -42,24 +36,31 @@ h1 {
 }
 
 button {
-    color: white;
     background-color: transparent;
-    font-size: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 32px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
 }
+
+button:hover {
+    transform: scale(1.1);
+  }
 
 .footer {
     text-align: center;
     padding: 10px;
-    background-color: red;
+    background: linear-gradient(#292D3E);  
 }
 
 .title {
     font-family: 'Rajdhani', sans-serif;
     color: white;
     font-size: 100px;
-    
 }
 
 label {
