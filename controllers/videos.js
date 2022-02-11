@@ -1,6 +1,9 @@
 const {theUser, theVideo} = require("../models/User");
 
 
+const home = (req, res) =>{
+    res.render("home");
+}
 // create video
 const createdVideo = (req, res) =>{
     const object = {
@@ -25,12 +28,16 @@ const createdVideo = (req, res) =>{
    res.redirect("browse");
 }
 
+const upload = (req, res) =>{
+    res.render("upload", 
+	{ user: req.user });
+}
 
 const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
 
-        const context = {videos: videos, user: false};
+        const context = {videos: videos,  user: req.user};
         res.render("browse", context);  
     })
 }
@@ -75,7 +82,9 @@ const destroyVideo = (req, res) =>{
 
 
  module.exports = {
-   createdVideo,
+   home,
+    createdVideo,
+   upload,
    browsing,
    editVideo,
    destroyVideo
