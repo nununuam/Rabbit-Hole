@@ -33,8 +33,8 @@
         <tr>
             <td><form id=<%= video.id %> method="POST" action="/edit"></form></td>
             <td><input type="text" form=<%= video.id %> placeholder="<%= video.title %>" > </td>
-            <td><input type="text" form=<%= video.id %> readonly value="<%= video.categories %>" > </td>
-            <td><input type="text" form=<%= video.id %> readonly value="<%= video.links %>" ></td>
+            <td><input type="text" form=<%= video.id %> placeholder="<%= video.categories %>" > </td>
+            <td><input type="text" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
             <td><input type="submit" value="Edit" form=<%= video.id %> /></td>
         </tr>
         <% }) %>
