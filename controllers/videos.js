@@ -8,7 +8,7 @@ const createdVideo = (req, res) =>{
         categories: req.body.categories.split(" "),
         links: req.body.links,
     }
-    
+    console.log('user is', req.user);
     theVideo.create(object, (err, createdVideo) =>{
        // console.log(createdVideo);
         //console.log(`thgfggh ${theUser}`);
@@ -32,7 +32,7 @@ const browsing = (req, res) =>{
 
         const context = {videos: videos, user: req.user};
         res.render("browse", context);
-        console.log(videos);
+        //console.log(videos);
         
     })
 }
@@ -41,7 +41,7 @@ const browsing = (req, res) =>{
 
 const editVideo = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
-        console.log(req);
+        //console.log(req);
         if(err) res.send(err);
         const videosPlaceholder = 
             videos.map(video => ({id: video._id.toString(), title: video.title, links: video.links, categories: video.categories}));
@@ -53,7 +53,20 @@ const editVideo = (req, res) =>{
 }
 
 const destroyVideo = (req, res) =>{
-    
+    console.log("hey its hitting it");
+    theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
+        if (err) res.send(err);
+
+
+        console.log('user is', req.user);
+        theUser.findById(req.user, (err, foundUser) =>
+        {
+            console.log('found user:', foundUser);
+            foundUser.video.remove(deletedVideo);
+            foundUser.save();
+            res.redirect("/browse");
+        })
+     })
 }
 
 
