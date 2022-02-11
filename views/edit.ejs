@@ -35,10 +35,14 @@
             <td><input type="text" form=<%= video.id %> placeholder="<%= video.title %>" > </td>
             <td><input type="text" form=<%= video.id %> placeholder="<%= video.categories %>" > </td>
             <td><input type="text" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
-            <td><input type="submit" value="Edit" form=<%= video.id %> /></td>
+            <td>
+                <form action="/videos/edit/<%= video._id %>" method="POST">
+                    <input type="submit" value="Edit" />
+                </form>
+            </td>
         </tr>
         <% }) %>
 </table>
-    
+
 </body>
 </html>
