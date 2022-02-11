@@ -22,7 +22,7 @@ const createdVideo = (req, res) =>{
             //console.log(`fcreated video ${createdVideo}`)
         })
     })
-   res.redirect("/browse",);
+   res.redirect("/browse");
 }
 
 
@@ -56,17 +56,18 @@ const destroyVideo = (req, res) =>{
     console.log("hey its hitting it");
     theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
         if (err) res.send(err);
-
-
-        console.log('user is', req.user);
-        theUser.findById(req.user, (err, foundUser) =>
+        /*
+        console.log('user is', user);
+        theUser.findById(req.user.id, (err, foundUser) =>
         {
             console.log('found user:', foundUser);
             foundUser.video.remove(deletedVideo);
             foundUser.save();
             res.redirect("/browse");
         })
+        */
      })
+     res.redirect("/videos/browse");
 }
 
 
