@@ -50,7 +50,7 @@ const editing = (req, res) =>{
         res.render("edit", context);  
     })
 }
-    
+   
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
    
@@ -68,6 +68,7 @@ const editVideo = (req, res) =>{
             res.redirect("/videos/browse");
         });
 }
+
 
 const destroyVideo = (req, res) =>{
     console.log("hey its hitting it");

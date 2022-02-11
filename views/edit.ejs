@@ -38,7 +38,7 @@
 
             <td><input type="text" name="links" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
             <td>
-                <form action="/videos/edit/<%= video._id %>" method="PUT">
+                <form action="/videos/edit/<%= video._id %>" method="POST">
                     <input type="submit" value="Edit" />
                 </form>
             </td>
