@@ -37,20 +37,7 @@ const browsing = (req, res) =>{
     })
 }
 
-const show = (req, res) => {
-    theUser.findById(req.params.id)
-    // turns ids into the data from their model
-        //.populate("author")
-        // functioning like db.Author.findById()
-        // allowing us to reference documents in other collections by automatically replacing the specified path/"field" in the document(s) from other collections
-        .exec((err, foundArticle) => {
-            if (err) res.send(err);
 
-            const context = { videos: foundArticle };
-
-            res.render("browse/show", context)
-        });
-};
 
 const editVideo = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
