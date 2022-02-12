@@ -8,5 +8,5 @@ router.get("/browse", ctrl.browsing);
 router.get("/browse/:id", ctrl.destroyVideo);
 router.post("/browse/:id/edit", ctrl.editVideo);
 router.post("/browse/:id", ctrl.updateVideo);
-//router.post("/edit/:id", ctrl.editVideo);
+
 module.exports = router;
