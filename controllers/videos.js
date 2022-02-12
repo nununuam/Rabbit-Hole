@@ -54,7 +54,19 @@ const editVideo = (req, res) =>{
 }
 const updateVideo = (req, res) =>{
     console.log("its hitting the update");
-    res.redirect("browse");
+    theVideo.findByIdAndUpdate(req.params.id,
+        { 
+            $set: {
+                ...req.body,
+            },
+        },
+        { new: true },
+        
+        (err, updatedvideo) => {
+            if (err) res.send(err);
+            
+            res.redirect("/videos/browse");
+        });
 }
    /*
         theVideo.findByIdAndUpdate(req.params.id,

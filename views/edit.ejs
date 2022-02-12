@@ -24,13 +24,13 @@
 <div>
 
     
-    <form action="/videos/browse/edit/<%=video.id%>" method="PUT">
+    <form action="/videos/browse/<%=video.id%>" method="POST">
         <h3>Caterogy</h3>
         <input type="text" placeholder="<%= video.categories%>" name="categories">
         <h3>Link</h3>
-       <input type="text" placeholder="<%= video.links %>" name="links">
-       <h3>Title</h3>
-       <input type="text" placeholder="<%= video.title %>"  name="title"></form> <br>
+        <input type="text" placeholder="<%= video.links %>" name="links">
+        <h3>Title</h3>
+        <input type="text" placeholder="<%= video.title %>"  name="title"> <br>
         <button type="submit">Submit</button>
       </form>
 
