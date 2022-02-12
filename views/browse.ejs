@@ -111,22 +111,22 @@ ul#ulli{
         </div>
         <div class="grid"></div>
             <div>
-            <ul>
+            <ul id="ulli">
                 <div>
                 <% videos.forEach ( video => { %>
                     
                         <li><%= video.title %></li>
-                        <li><a href="<%= video.links %>">youtube link</a></li>
+                        <li><a class ="link" href="<%= video.links %>">youtube link</a></li>
                         <li>#<%= video.categories%></li>
                         <li>views: <%= video.views %></li><br>
                     <section>
                         <form action="/videos/browse/<%= video._id %>" method="DELETE">
-                            <input type="submit" value="Delete" />
+                            <button type="submit">Delete</button>
                         </form>
                     </section>
                     <section>
                         <form action="/videos/browse/<%= video._id %>/edit" method="POST">
-                            <input type="submit" value="Edit" />
+                            <button type="submit">Edit</button>
                         </form>
                     </section>
                        
