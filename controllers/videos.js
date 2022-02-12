@@ -39,7 +39,6 @@ const browsing = (req, res) =>{
     })
 }
 
-
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
     theVideo.findById(req.params.id, (err, foundVideo) =>{
@@ -49,6 +48,7 @@ const editVideo = (req, res) =>{
         res.render("edit", context);
     })
 }
+
 const updateVideo = (req, res) =>{
     console.log("its hitting the update");
     theVideo.findByIdAndUpdate(req.params.id,
@@ -66,7 +66,6 @@ const updateVideo = (req, res) =>{
         });
 }
 
-
 const destroyVideo = (req, res) =>{
     console.log("hey its hitting it");
     theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
@@ -74,8 +73,6 @@ const destroyVideo = (req, res) =>{
      })
      res.redirect("/videos/browse");
 }
-
-
 
  module.exports = {
    home,
