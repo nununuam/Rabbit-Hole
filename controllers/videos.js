@@ -53,7 +53,12 @@ const editing = (req, res) =>{
    
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
-   
+    theVideo.findById(req.params.id, (err, foundVideo) =>{
+        if(err) res.send(err);
+        const context = {videos: foundVideo,  user: req.user};
+        res.render("edit", context);
+    })
+   /*
         theVideo.findByIdAndUpdate(req.params.id,
         { 
             $set: {
@@ -67,6 +72,7 @@ const editVideo = (req, res) =>{
             updatedvideo.save();
             res.redirect("/videos/browse");
         });
+        */
 }
 
 
