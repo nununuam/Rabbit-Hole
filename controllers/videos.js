@@ -1,6 +1,9 @@
 const {theUser, theVideo} = require("../models/User");
 
 
+const home = (req, res) =>{
+    res.render("home");
+}
 // create video
 const createdVideo = (req, res) =>{
     const object = {
@@ -8,62 +11,75 @@ const createdVideo = (req, res) =>{
         categories: req.body.categories.split(" "),
         links: req.body.links,
     }
-    
+    console.log('user is', req.user);
     theVideo.create(object, (err, createdVideo) =>{
-       // console.log(createdVideo);
-        console.log(`thgfggh ${theUser}`);
+ 
         if (err) res.send(err);
         theUser.findById(req.user).exec(function (err, foundUser){
             if (err) res.send(err);
             foundUser.video.push(createdVideo);
             foundUser.save();
             createdVideo.save();
-           // console.log(`found user ${foundUser}`);
-            //console.log(`fcreated video ${createdVideo}`)
         })
     })
-   res.redirect("/browse");
+   res.redirect("browse");
+}
+
+const upload = (req, res) =>{
+    res.render("upload", 
+	{ user: req.user });
 }
 
 const browsing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
 
-        const context = {videos: videos, user: false};
-        res.render("browse", context);
-        console.log(videos);
+        const context = {videos: videos,  user: req.user};
+        res.render("browse", context);  
     })
 }
 
 const editVideo = (req, res) =>{
-    theVideo.find({}, (err, videos) =>{
-        console.log(req);
+    console.log("yo yo yot");
+    theVideo.findById(req.params.id, (err, foundVideo) =>{
+        console.log("lol", foundVideo);
         if(err) res.send(err);
-        const videosPlaceholder = 
-            videos.map(video => ({id: video._id.toString(), title: video.title, links: video.links, categories: video.categories}));
-            console.log("videos: ", videosPlaceholder );
-
-        const context = {videos: videosPlaceholder, user: false};
+        const context = {video: foundVideo,  user: req.user};
         res.render("edit", context);
-    });
+    })
+}
+
+const updateVideo = (req, res) =>{
+    console.log("its hitting the update");
+    theVideo.findByIdAndUpdate(req.params.id,
+        { 
+            $set: {
+                ...req.body,
+            },
+        },
+        { new: true },
+        
+        (err, updatedvideo) => {
+            if (err) res.send(err);
+            
+            res.redirect("/videos/browse");
+        });
 }
 
 const destroyVideo = (req, res) =>{
-    const key = {
-        title: req.body.title,
-        links: req.body.links,
-    }
-    console.log("callsed destory", req.body)
-    theVideo.findOne(key, (err, foundVideo) =>{
-        if(err) res.send(err);
-        res.redirect("/edit")
-    });
+    console.log("hey its hitting it");
+    theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
+        if (err) res.send(err);
+     })
+     res.redirect("/videos/browse");
 }
 
  module.exports = {
+   home,
    createdVideo,
+   upload,
    browsing,
    editVideo,
+   updateVideo,
    destroyVideo
-  };
-  
+  }

@@ -10,7 +10,7 @@ router.get(
 router.get( 
     "/oauth2callback", 
     passport.authenticate("google", { 
-        successRedirect: "/upload", 
+        successRedirect: "/videos/upload", 
         failureRedirect: "/home", }) 
     );
 
@@ -27,16 +27,6 @@ router.get("/login", function (req, res) {
 router.get("/", function (req, res) 
     { res.render("home", { user: req.user, }); 
 }); 
-
-router.get("/", function (req, res) {
-    res.render('index', {
-        user: req.user
-    });
-});
-
-//router.post("/upload")
-
-
 
 
 module.exports = router;
