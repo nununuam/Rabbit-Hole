@@ -22,15 +22,20 @@
        
     </div>
 <div>
+
+    
     <form action="/videos/browse<%=video.id%>" method="POST">
-        <input type="text" placeholder="category" value ="<%= video.categories%>" name="categories">
-
-       <input type="text" placeholder="link" vlaue="<%= video.links %>" name="links">
-
-       <input type="text" placeholder="title" value="<%= video.title %>" name="title">
+        <h3>Caterogy</h3>
+        <input type="text" placeholder="<%= video.categories%>" name="categories">
+        <h3>Link</h3>
+       <input type="text" placeholder="<%= video.links %>" name="links">
+       <h3>Title</h3>
+       <input type="text" placeholder="<%= video.title %>"  name="title"></form> <br>
 
         <button type="submit">Submit</button>
       </form>
+
+    
 </div>
     
 
