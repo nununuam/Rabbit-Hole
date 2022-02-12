@@ -14,37 +14,25 @@
     <div class="navbar">
         <a href="/videos/home">Home</a>
         <a href="/videos/upload">Upload</a>
-        <a href="/videos/edit">Edit</a>
+        <!--
+            <a href="/videos/edit">Edit</a>
+        -->
         <a href="/videos/browse">Browse</a>
       
        
     </div>
+<div>
+    <form action="/videos/browse<%=video.id%>" method="POST">
+        <input type="text" placeholder="category" value ="<%= video.categories%>" name="categories">
 
-<table>
-    <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Categories</th>
-        <th>Links</th>
-        <th></th>
-    </tr>
+       <input type="text" placeholder="link" vlaue="<%= video.links %>" name="links">
+
+       <input type="text" placeholder="title" value="<%= video.title %>" name="title">
+
+        <button type="submit">Submit</button>
+      </form>
+</div>
     
-    <% videos.forEach ( video => { %>
-        <tr>
-            <td><form id=<%= video.id %> ></form></td>
-            <td><input name="title" type="text" form=<%= video.id %> placeholder="<%= video.title %>" > </td>
-
-            <td><input name="categories" type="text" form=<%= video.id %> placeholder="<%= video.categories %>" > </td>
-
-            <td><input type="text" name="links" form=<%= video.id %> placeholder="<%= video.links %>" ></td>
-            <td>
-                <form action="/videos/edit/<%= video._id %>" method="POST">
-                    <input type="submit" value="Edit" />
-                </form>
-            </td>
-        </tr>
-        <% }) %>
-</table>
 
 </body>
 </html>

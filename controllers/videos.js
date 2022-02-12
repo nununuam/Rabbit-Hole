@@ -41,7 +41,7 @@ const browsing = (req, res) =>{
         res.render("browse", context);  
     })
 }
-
+/*
 const editing = (req, res) =>{
     theVideo.find({}, (err, videos) =>{
         if(err) res.send(err);
@@ -50,12 +50,13 @@ const editing = (req, res) =>{
         res.render("edit", context);  
     })
 }
-   
+*/
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
     theVideo.findById(req.params.id, (err, foundVideo) =>{
+        console.log("lol", foundVideo);
         if(err) res.send(err);
-        const context = {videos: foundVideo,  user: req.user};
+        const context = {video: foundVideo,  user: req.user};
         res.render("edit", context);
     })
    /*
@@ -101,7 +102,6 @@ const destroyVideo = (req, res) =>{
    createdVideo,
    upload,
    browsing,
-   editing,
    editVideo,
    destroyVideo
   }
