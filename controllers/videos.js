@@ -41,16 +41,8 @@ const browsing = (req, res) =>{
         res.render("browse", context);  
     })
 }
-/*
-const editing = (req, res) =>{
-    theVideo.find({}, (err, videos) =>{
-        if(err) res.send(err);
 
-        const context = {videos: videos,  user: req.user};
-        res.render("edit", context);  
-    })
-}
-*/
+
 const editVideo = (req, res) =>{
     console.log("yo yo yot");
     theVideo.findById(req.params.id, (err, foundVideo) =>{
@@ -59,6 +51,11 @@ const editVideo = (req, res) =>{
         const context = {video: foundVideo,  user: req.user};
         res.render("edit", context);
     })
+}
+const updateVideo = (req, res) =>{
+    console.log("its hitting the update");
+    res.redirect("browse");
+}
    /*
         theVideo.findByIdAndUpdate(req.params.id,
         { 
@@ -74,7 +71,7 @@ const editVideo = (req, res) =>{
             res.redirect("/videos/browse");
         });
         */
-}
+
 
 
 const destroyVideo = (req, res) =>{
@@ -103,5 +100,6 @@ const destroyVideo = (req, res) =>{
    upload,
    browsing,
    editVideo,
+   updateVideo,
    destroyVideo
   }
