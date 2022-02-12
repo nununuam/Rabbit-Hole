@@ -2,7 +2,11 @@ const {theUser, theVideo} = require("../models/User");
 
 
 const home = (req, res) =>{
-    res.render("home");
+    res.render("home",{ user: req.user });
+}
+const Home = (req,res) =>{
+    res.render("upload", 
+	{ user: req.user });
 }
 // create video
 const createdVideo = (req, res) =>{
@@ -67,7 +71,7 @@ const updateVideo = (req, res) =>{
 }
 
 const destroyVideo = (req, res) =>{
-    console.log("hey its hitting it");
+    console.log("hey its hitting it, destroy");
     theVideo.findByIdAndDelete(req.params.id, (err, deletedVideo)=>{
         if (err) res.send(err);
      })
@@ -76,6 +80,7 @@ const destroyVideo = (req, res) =>{
 
  module.exports = {
    home,
+   Home,
    createdVideo,
    upload,
    browsing,
