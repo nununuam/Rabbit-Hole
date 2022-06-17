@@ -1,7 +1,7 @@
 # Rabbit-Hole
 
 ## Concept:
-Uplaod and save youtube videos and organize them with the catagory of your choosing. 
+Allows users to uplaod and save youtube videos and organize them with the catagory of your choosing.
 
 ## Wireframes:
 
